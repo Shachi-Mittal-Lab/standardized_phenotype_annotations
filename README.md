@@ -1,40 +1,53 @@
-**TODO: UPLOAD TO GITHUB**
+<h1>Standardized Phenotype Annotation Guidelines for Multiplexed Immunofluorescence Data</h1>
+<h3>Authored by <b>Lisa Carr</b> and <b>Abishek Sankaranarayanan</b></h3>
+<br>
+</br>
 
 **A: INTRODUCTION & BACKGROUND**
 
->
-> *Round 1*: The initial round of annotations required to initiate the
-> training of the singular/lineage marker classifiers. Ideally, the user
-> should provide 8-10 annotations for each category (i.e. CDXX, Ignore),
-> however, the user should aim for 10 is the marker is not sparse.
->
-> *Round 2*: After loading the classifier, the user will provide
-> training annotations in the 'Live Update' view in QuPath to further
-> refine the classifier. The number of annotations provided in this
-> portions can be affected by marker, stain, and/or patient-based
-> variations.
->
-> *Other:* Within a particular channel, brighter staining does not equate
+*Panel*: 
+| Biomarker | Fluorophore |
+|----------|----------|
+| DAPI |  |
+| CD45RO | Opal 520 |
+| CD3 | Opal 570 |
+| CD8 | Opal 650 |
+| CD66b | Opal 690 |
+| CD4 | Opal 780 |
+
+
+ *Round 1*: The initial round of annotations required to initiate the
+ training of the singular/lineage marker classifiers. Ideally, the user
+ should provide 8-10 annotations for each category (i.e. CDXX, Ignore),
+ however, the user should aim for 10 is the marker is not sparse.
+
+ *Round 2*: After loading the classifier, the user will provide
+ training annotations in the 'Live Update' view in QuPath to further
+ refine the classifier. The number of annotations provided in this
+ portions can be affected by marker, stain, and/or patient-based
+ variations.
+
+ *Other:* Within a particular channel, brighter staining does not equate
     higher levels of expression
 
 **B: DEFINITIONS**
 
-> *Diffuse* (*staining*): staining that looks **hazy** and
-> (subjectively) seems relatively + noticeably **less bright** than the
-> staining in the surrounding area.
->
-> *Complete* (*staining*): the most complete staining will manifest as a
-> continuous pattern of staining forming a donut-like shape; however,
-> the degree of completeness can be evaluated by the **total portion of
-> the perimeter** of the cell and/or nuclear segmentation is encompassed
-> by the staining. Note that this donut hole may also be 'filled' to be
-> considered complete.
->
-> *Specific* (*staining*): staining that is **localized** to the
-> membrane (or clearly surrounding the nuclear compartment) of a cell
-> according to the segmentation. The stain should either have some
-> semblance of a donut/crescent shape around the nuclear compartment or
-> cover the entirety of the nuclear compartment + cellular membrane.
+ *Diffuse* (*staining*): staining that looks **hazy** and
+ (subjectively) seems relatively + noticeably **less bright** than the
+ staining in the surrounding area.
+
+ *Complete* (*staining*): the most complete staining will manifest as a
+ continuous pattern of staining forming a donut-like shape; however,
+ the degree of completeness can be evaluated by the **total portion of
+ the perimeter** of the cell and/or nuclear segmentation is encompassed
+ by the staining. Note that this donut hole may also be 'filled' to be
+ considered complete.
+
+ *Specific* (*staining*): staining that is **localized** to the
+ membrane (or clearly surrounding the nuclear compartment) of a cell
+ according to the segmentation. The stain should either have some
+ semblance of a donut/crescent shape around the nuclear compartment or
+ cover the entirety of the nuclear compartment + cellular membrane.
 
 **C: GENERAL GUIDELINES**
 
@@ -152,7 +165,7 @@
         annotation at all if the channels look too similar and/or if
         they are predominantly unsure.
 
-[Stopping Point]{.underline}
+<u>Stopping Point</u>
 
 1.  *Individual Markers:* stop providing annotations in the live
     predictions when [either]{.underline}...
@@ -162,21 +175,18 @@
 a)  After an annotation is placed, the resulting number of detections is
     within ± 5% for any 10 of the previous counts/annotations (**not
     including** Round 1 annotations).
-
-    i.  Reference the excel workbook
+    
+* Reference the excel workbook
 
 b)  The user cannot make any more confident and/or meaningful
     annotations.
-
-    i.  Although there may be some edge cases, you may not see any more
-        obvious misclassifications.
-
-    ii. If placing an annotation for an edge case produces (in the
-        surrounding area) more predictions that don't align with what
-        you would expect and/or the cell's prediction does not change
-        after correcting it, then that is not a meaningful annotation.
-
-    iii. You can keep re-annotating cells that are +/-
+* Although there may be some edge cases, you may not see any more
+    obvious misclassifications.
+* If placing an annotation for an edge case produces (in the
+surrounding area) more predictions that don't align with what
+you would expect and/or the cell's prediction does not change
+after correcting it, then that is not a meaningful annotation.
+* You can keep re-annotating cells that are +/-
 
 <!-- -->
 
@@ -191,13 +201,13 @@ a)  After an annotation is placed, the resulting number of detections is
 
 b)  The user make any more confident and/or meaningful annotations.
 
-    i.  Although there may be some edge cases, you may not see any more
-        obvious misclassifications.
+i.  Although there may be some edge cases, you may not see any more
+    obvious misclassifications.
 
-    ii. If placing an annotation for an edge case produces (in the
-        surrounding area) more predictions that don't align with what
-        you would expect and/or the cell's prediction does not change
-        after correcting it, then that is not a meaningful annotation.
+ii. If placing an annotation for an edge case produces (in the
+    surrounding area) more predictions that don't align with what
+    you would expect and/or the cell's prediction does not change
+    after correcting it, then that is not a meaningful annotation.
 
 <!-- -->
 
@@ -214,8 +224,7 @@ b)  The user make any more confident and/or meaningful annotations.
 
     -   *Note: these numbers are a guide, not a goal*
 
-**\
-**
+
 
 **D: CD8 CLASSIFIER**
 
@@ -275,19 +284,19 @@ b)  The user make any more confident and/or meaningful annotations.
 -   The user **SHOULD NOT** fix a prediction if...
 
     -   there is a predicted CD8+ cell with questionable CD8 stain but
-        the CD3 stain was strong in that same area/cell 🡪 leave as CD8+
+        the CD3 stain was strong in that same area/cell &rarr; leave as CD8+
 
     -   there is a predicted CD8+ cell that looks like it has a strong
         and/or specific and complete CD8 stain but there was
-        questionable/no corresponding CD3 stain 🡪 leave as CD8+
+        questionable/no corresponding CD3 stain &rarr; leave as CD8+
 
     -   there is a predicted CD8- cell that may be considered CD8+ (or
         as an edge case) but there was no corresponding CD3 stain (even
-        if the CD8 stain was specific) 🡪 leave as CD8+
+        if the CD8 stain was specific) &rarr; leave as CD8+
 
     -   there is a predicted CD8- cell that had some diffuse/bright
         staining but the staining was (both) neither specific nor
-        complete ($< 30 - 40\%$) 🡪 leave as CD8-
+        complete ($< 30 - 40\%$) &rarr; leave as CD8-
 
 **E: CD4 CLASSIFIER**
 
@@ -333,19 +342,19 @@ b)  The user make any more confident and/or meaningful annotations.
 -   The user **SHOULD NO**T fix a prediction if...
 
     -   there is a predicted CD4+ cell with questionable CD4 stain but
-        the CD3 stain was strong in that same area/cell 🡪 leave as CD4+
+        the CD3 stain was strong in that same area/cell &rarr; leave as CD4+
 
     -   there is a predicted CD4+ cell that looked like it had a strong
         and/or specific and complete CD4 stain but there was
-        questionable/no corresponding CD3 stain 🡪 leave as CD4+
+        questionable/no corresponding CD3 stain &rarr; leave as CD4+
 
     -   there is a predicted CD4- cell that may be considered CD4+ (or
         as an edge case) but there was no corresponding CD3 stain (even
-        if the CD4 stain was specific) 🡪 leave as CD4+
+        if the CD4 stain was specific) &rarr; leave as CD4+
 
     -   there is a predicted CD4- cell that had some diffuse/bright
         staining but the staining was neither specific nor complete
-        ($< 30 - 40\%$) 🡪 leave as CD4-
+        ($< 30 - 40\%$) &rarr; leave as CD4-
 
 **F: CD45RO CLASSIFIER**
 
@@ -376,20 +385,20 @@ b)  The user make any more confident and/or meaningful annotations.
 -   The user **SHOULD NO**T fix a prediction if...
 
     -   there is a predicted CD45RO+ cell with questionable CD45RO stain
-        but the CD3 stain was strong in that same area/cell 🡪 leave as
+        but the CD3 stain was strong in that same area/cell &rarr; leave as
         CD45RO+
 
     -   there is a predicted CD45RO + cell that looked like it had a
         strong and/or specific and complete CD45RO stain but there was
-        questionable/no corresponding CD3 stain 🡪 leave as CD45RO+
+        questionable/no corresponding CD3 stain &rarr; leave as CD45RO+
 
     -   there is a predicted CD45RO- cell that may be considered CD45RO+
         (or as an edge case) but there was no corresponding CD3 stain
-        (even if the CD45RO stain was specific) 🡪 leave as CD45RO+
+        (even if the CD45RO stain was specific) &rarr; leave as CD45RO+
 
     -   there is a predicted CD45RO- cell that had some diffuse/bright
         staining but the staining was neither specific nor complete
-        ($< 30 - 40\%$) 🡪 leave as CD45RO-
+        ($< 30 - 40\%$) &rarr; leave as CD45RO-
 
 **G: LINEAGE CLASSIFIER: CD3**
 
@@ -528,24 +537,20 @@ b)  The user make any more confident and/or meaningful annotations.
         There should also not be staining in the immediate surroundings
         of this cell that overlap with other cells.
 
-> ![](media/image1.png){width="1.8470592738407698in"
-> height="1.4148939195100612in"}
+![](imgs/blotchy_CD66b.png)
 
 -   **(2)**: in these areas, it is usually very hard to determine
     specificity. The user should avoid making annotations or fixing
     predictions in these areas with the exception\...(hard to define
     exceptions)
 
-> ![A close-up of a black and white image Description automatically
-> generated](media/image2.png){width="1.849905949256343in"
-> height="1.3510640857392826in"}
+![](imgs/Picture2.png)
 
 -   **(3)**: in these areas, it is usually very hard to determine
     specificity. The user should avoid making annotations or fixing
     predictions in these areas.
 
-> ![](media/image3.png){width="1.8510629921259842in"
-> height="1.4167749343832021in"}
+![](imgs/Picture3.png)
 
 -   **Mitigating the effects of crosstalk**: the user should place
     ignore annotations where there is CD3 positivity so the classifier
